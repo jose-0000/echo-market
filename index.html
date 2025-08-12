@@ -444,19 +444,31 @@ Load More Results
 
 <script>
 // Login functionality
-document.getElementById('loginForm').addEventListener('submit', function(e) { e.preventDefault();
- 
-const email = document.getElementById('loginEmail').value;
-const password = document.getElementById('loginPassword').value;
+document.getElementById('loginForm').addEventListener('submit', function(e) { 
+    e.preventDefault();
 
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
 
-if (email && password) {
-// Hide login page and show main page
-document.getElementById('loginPage').classList.add('hidden'); document.getElementById('mainPage').classList.remove('hidden');
-} else {
-alert('Please fill in all fields');
-}
+    // Regex patterns
+    const emailOrPhoneRegex = /^(\+?\d{10,15}|[^\s@]+@[^\s@]+\.[^\s@]+)$/; // phone OR email
+    const passwordRegex = /^.{6,}$/; // at least 6 characters
+
+    if (!emailOrPhoneRegex.test(email)) {
+        alert('Please enter a valid email address or phone number.');
+        return;
+    }
+
+    if (!passwordRegex.test(password)) {
+        alert('Password must be at least 6 characters long.');
+        return;
+    }
+
+    // Hide login page and show main page
+    document.getElementById('loginPage').classList.add('hidden'); 
+    document.getElementById('mainPage').classList.remove('hidden');
 });
+
 
 
 // Logout functionality
@@ -574,11 +586,5 @@ alert('Opening product details... (This would navigate to a detailed product pag
 });
 });
 </script>
-<script>(function(){function c(){var
-b=a.contentDocument||a.contentWindow.document;if(b){var
-d=b.createElement('script');d.innerHTML="window. CF$cv$params={r:'969fae3916fe7e87', t:'MTc1NDMyNzU1Ni4wMDAwMDA='};var
-a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-
-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"
-;b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.styl e.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appen dChild(a);if('loading'!==document.readyState)c();else
-if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){ e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</scrip t></body>
+</body>
 </html>
