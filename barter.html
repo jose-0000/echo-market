@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barter Proposal</title>
+  <link rel="stylesheet" href="barter_form.css">
+</head>
+<body>
+  <h1>Propose Your Barter</h1>
+  <div id="targetItemContainer">
+    <strong>Item You Want:</strong>
+    <span id="targetItemName">Loading...</span>
+  </div>
+
+  <form id="barterForm">
+    <label for="offeredItem">Your Offered Item</label>
+    <input type="text" id="offeredItem" name="offeredItem" placeholder="Enter your item for exchange" required>
+
+    <label for="description">Description of Your Offered Item</label>
+    <textarea id="description" name="description" placeholder="Describe your item" required></textarea>
+
+    <label for="images">Upload Images</label>
+    <input type="file" id="images" name="images" accept="image/*" multiple required>
+
+    <label for="pickup">Pickup / Delivery Details</label>
+    <input type="text" id="pickup" name="pickup" placeholder="E.g., Will deliver within city">
+
+    <label for="expiry">Offer Expiry Date</label>
+    <input type="date" id="expiry" name="expiry" required>
+
+    <button type="submit">Send Proposal</button>
+  </form>
+
+  <script src="barter_form.js"></script>
+</body>
+</html>
