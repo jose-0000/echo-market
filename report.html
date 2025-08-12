@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Report Item/User</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #f44336;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    button:hover {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h2>Report Item/User</h2>
+
+  <!-- Report form -->
+  <form id="report-form">
+    
+    <label for="reason">Reason:</label>
+    <select id="reason" required>
+      <option value="">--Select Reason--</option>
+      <option value="Spam">Spam</option>
+      <option value="Inappropriate">Inappropriate</option>
+      <option value="Fake">Fake</option>
+      <option value="Already Given">Already Given</option>
+    </select>
+
+    
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" rows="4" placeholder="Any other details you want us to know..."></textarea>
+
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <script src="../Scripts/report.js"></script>
+</body>
+</html>

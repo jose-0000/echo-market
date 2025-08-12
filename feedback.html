@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>General Feedback Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    form { background: white; padding: 15px; border-radius: 6px; max-width: 400px; margin: auto; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    select, textarea, input[type="submit"] {
+      width: 100%; padding: 8px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    input[type="submit"] {
+      background: #4CAF50; color: white; cursor: pointer; margin-top: 15px;
+    }
+    input[type="submit"]:hover { background: #45a049; }
+  </style>
+</head>
+<body>
+
+  <h2>General Feedback Form</h2>
+
+  <!-- Feedback Form -->
+  <form id="feedback-form">
+    <label for="feedback-type">Feedback Type</label>
+    <select id="feedback-type" name="feedback-type" required>
+      <option value="">-- Select Type --</option>
+      <option value="Bug">Bug</option>
+      <option value="Suggestion">Suggestion</option>
+      <option value="Complaint">Complaint</option>
+    </select>
+
+    <label for="feedback-message">Message:</label>
+    <textarea id="feedback-message" placeholder="Write your feedback here..."></textarea>
+
+    <label for="screenshot">Screenshot:</label>
+    <input type="file" id="screenshot">
+
+    <input type="submit" value="Submit Feedback">
+  </form>
+
+  <script src="../Scripts/feedback.js"></script>
+
+</body>
+</html>
