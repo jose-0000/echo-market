@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="exchangeConfirmationForm">
+        <h2>Confirm Exchange</h2>
+
+        <label for="confirmedItem">Confirmed Item:</label>
+        <input type="text" id="confirmedItem" name="confirmedItem" required>
+
+        <label for="pickupAddress">Pickup Address:</label>
+        <textarea id="pickupAddress" name="pickupAddress" required></textarea>
+
+        <label for="dateTime">Date & Time:</label>
+        <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required pattern="[0-9]{10}">
+
+        <label for="notes">Optional Notes:</label>
+        <textarea id="notes" name="notes"></textarea>
+
+        <button type="submit">Confirm Exchange</button>
+    </form>
+
+    <script src="ex_conf.js"></script>
+</body>
+
+</html>

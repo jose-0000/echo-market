@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Community</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="createCommunityForm">
+        <h2>Create Community</h2>
+
+        <label for="communityName">Community Name:</label>
+        <input type="text" id="communityName" name="name" required>
+
+        <label for="location">Location / Area:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="communityType">Community Type:</label>
+        <select id="communityType" name="type" required>
+            <option value="">Select type</option>
+            <option value="Residential">Residential</option>
+            <option value="Workplace">Workplace</option>
+            <option value="College">College</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="accessType">Access Type:</label>
+        <select id="accessType" name="accessType" required>
+            <option value="Public">Public</option>
+            <option value="Private">Private (Code Required)</option>
+        </select>
+
+        <label for="description">Description (optional):</label>
+        <textarea id="description" name="description"></textarea>
+
+        <button type="submit">Create Community</button>
+    </form>
+
+    <script>
+        document.getElementById("createCommunityForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch("/api/community", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                if (res.ok) {
+                    alert("✅ Community created successfully!");
+                    this.reset();
+                } else {
+                    alert("❌ Error: " + (result.error || "Something went wrong"));
+                }
+            } catch (err) {
+                alert("⚠️ Network error: " + err.message);
+            }
+        });
+    </script>
+</body>
+
+</html>
